@@ -82,7 +82,7 @@ public class SingletonWorkDataWorkLoad extends GenerateDataWorkLoad {
     batch.setDeviceSchema(deviceSchema);
     // create data of batch
     for (long batchOffset = 0; batchOffset < config.getBATCH_SIZE_PER_WRITE(); batchOffset++) {
-      long stepOffset =
+      long stepOffset = // 大概是生成了一个规整的时间戳偏移量
           (curLoop / config.getDEVICE_NUMBER()) * config.getBATCH_SIZE_PER_WRITE() + batchOffset;
       addOneRowIntoBatch(batch, stepOffset);
     }

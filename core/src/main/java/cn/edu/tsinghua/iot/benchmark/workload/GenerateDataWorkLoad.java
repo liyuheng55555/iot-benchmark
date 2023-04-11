@@ -72,7 +72,7 @@ public abstract class GenerateDataWorkLoad extends DataWorkLoad {
   protected void addOneRowIntoBatch(Batch batch, long stepOffset) throws WorkloadException {
     List<Object> values = new ArrayList<>();
     long currentTimestamp = getCurrentTimestamp(stepOffset);
-    if (batch.getColIndex() == -1) {
+    if (batch.getColIndex() == -1) { // -1的含义似乎是全部写入
       for (int i = 0; i < config.getSENSOR_NUMBER(); i++) {
         values.add(
             workloadValues[i][(int) (Math.abs(stepOffset) % config.getWORKLOAD_BUFFER_SIZE())]);
@@ -87,7 +87,7 @@ public abstract class GenerateDataWorkLoad extends DataWorkLoad {
 
   /** Get timestamp according to stepOffset */
   protected long getCurrentTimestamp(long stepOffset) throws WorkloadException {
-    if (config.isIS_OUT_OF_ORDER()) {
+    if (config.isIS_OUT_OF_ORDER()) { // 乱序在这里实现
       // change offset according to out of order mode
       switch (config.getOUT_OF_ORDER_MODE()) {
         case POISSON:
