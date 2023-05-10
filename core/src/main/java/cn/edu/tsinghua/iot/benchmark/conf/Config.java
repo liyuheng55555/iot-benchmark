@@ -269,6 +269,7 @@ public class Config {
    * * BATCH_SIZE
    */
   private int BATCH_SIZE_PER_WRITE = 10;
+  private int DEVICE_NUM_PER_WRITE = 1;
   /** Whether create schema before writing */
   private boolean CREATE_SCHEMA = true;
 
@@ -1096,6 +1097,14 @@ public class Config {
 
   public void setBATCH_SIZE_PER_WRITE(int BATCH_SIZE_PER_WRITE) {
     this.BATCH_SIZE_PER_WRITE = BATCH_SIZE_PER_WRITE;
+  }
+
+  public void setDEVICE_NUM_PER_WRITE(int DEVICE_NUM_PER_WRITE) {
+    this.DEVICE_NUM_PER_WRITE = DEVICE_NUM_PER_WRITE;
+  }
+
+  public int getDEVICE_NUM_PER_WRITE() {
+    return DEVICE_NUM_PER_WRITE;
   }
 
   public boolean isCREATE_SCHEMA() {
