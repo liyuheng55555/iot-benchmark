@@ -148,19 +148,19 @@ public class IoTDBSession extends IoTDBSessionBase {
             constructDataTypes(
                 batch.getDeviceSchema().getSensors(), record.getRecordDataValue().size()));
       }
-      try {
-        if (config.isVECTOR()) {
-          session.insertAlignedRecords(deviceIds, times, measurementsList, typesList, valuesList);
-        } else {
-          session.insertRecords(deviceIds, times, measurementsList, typesList, valuesList);
-        }
-      } catch (IoTDBConnectionException | StatementExecutionException e) {
-        return new Status(false, 0, e, e.toString());
-      }
       if (!batch.hasNext()) {
         break;
       }
       batch.next();
+    }
+    try {
+      if (config.isVECTOR()) {
+        session.insertAlignedRecords(deviceIds, times, measurementsList, typesList, valuesList);
+      } else {
+        session.insertRecords(deviceIds, times, measurementsList, typesList, valuesList);
+      }
+    } catch (IoTDBConnectionException | StatementExecutionException e) {
+      return new Status(false, 0, e, e.toString());
     }
     return new Status(true);
   }

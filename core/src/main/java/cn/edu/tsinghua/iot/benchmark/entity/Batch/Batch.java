@@ -28,6 +28,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -155,5 +156,20 @@ public class Batch implements IBatch {
   @Override
   public int hashCode() {
     return new HashCodeBuilder(17, 37).append(deviceSchema).append(records).toHashCode();
+  }
+
+  @Override
+  public Iterator<Batch> iterator() {
+    return new Iterator<Batch>() {
+      @Override
+      public boolean hasNext() {
+        return false;
+      }
+
+      @Override
+      public Batch next() {
+        return this.;
+      }
+    };
   }
 }

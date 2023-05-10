@@ -24,7 +24,7 @@ import cn.edu.tsinghua.iot.benchmark.schema.schemaImpl.DeviceSchema;
 
 import java.util.List;
 
-public interface IBatch {
+public interface IBatch extends Iterable<Batch> {
   void add(long timestamp, List<Object> values);
 
   long pointNum();
