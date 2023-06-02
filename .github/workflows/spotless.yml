@@ -9,9 +9,13 @@ jobs:
 #      - run: git status
       - run: ls ..
       - name: ok
+        uses: actions/checkout@v2
         with:
           path: iot-benchmark
+          uses: actions/checkout@v2
           repository: 'thulab/iot-benchmark'
+          ref: 'master'
+          fetch-depth: 0
       - name: ok2
         run: |
           pwd
