@@ -4,6 +4,6 @@ jobs:
   have_a_try:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hello world!"
-      - run: pwd
-      - run: mvn spotless:check
+      run: |
+        cd <iot-benchmark>
+        mvn spotless:check
