@@ -7,6 +7,7 @@ jobs:
       - run: pwd
       - run: ls
       - run: git status
+      - run: ls ..
       - name: ok
         run: |
           pwd
