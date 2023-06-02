@@ -9,8 +9,12 @@ jobs:
 #      - run: git status
       - run: ls ..
       - name: ok
+        with:
+          path: iot-benchmark
+          repository: 'thulab/iot-benchmark'
         run: |
           pwd
           ls
+          cd ${{ github.workspace }}/iot-benchmark
+          mvn spotless:check
 #          cd iot-benchmark
-#          mvn spotless:check
