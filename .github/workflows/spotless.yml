@@ -12,14 +12,13 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: iot-benchmark
-          uses: actions/checkout@v2
-          repository: 'thulab/iot-benchmark'
-          ref: 'master'
-          fetch-depth: 0
+#          repository: 'thulab/iot-benchmark'
+#          ref: 'master'
+#          fetch-depth: 0
       - name: ok2
         run: |
           pwd
-          ls
           cd ${{ github.workspace }}/iot-benchmark
+          ls
           mvn spotless:check
 #          cd iot-benchmark
