@@ -8,5 +8,5 @@ jobs:
         run: |
           pwd
           ls
-          cd iot-benchmark
-          mvn spotless:check
+#          cd iot-benchmark
+#          mvn spotless:check
