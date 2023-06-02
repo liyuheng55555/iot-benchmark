@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "hello world!"
-      - run: cd ${{ github.workspace }}/iot-benchmark
+      - run: pwd
       - run: mvn spotless:check
