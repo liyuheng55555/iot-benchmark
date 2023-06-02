@@ -12,6 +12,7 @@ jobs:
         with:
           path: iot-benchmark
           repository: 'thulab/iot-benchmark'
+      - name: ok2
         run: |
           pwd
           ls
