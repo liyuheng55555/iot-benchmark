@@ -17,8 +17,7 @@ jobs:
 #          fetch-depth: 0
       - name: ok2
         run: |
-          pwd
           cd ${{ github.workspace }}/iot-benchmark
-          ls
+          git status
           mvn spotless:check
 #          cd iot-benchmark
