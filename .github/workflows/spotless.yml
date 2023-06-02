@@ -1,23 +1,14 @@
-name: spotless
+name: spotless-check
 on: [push]
 jobs:
-  have_a_try:
+  spotless-check:
     runs-on: ubuntu-latest
     steps:
-      - run: pwd
-      - run: ls
-#      - run: git status
-      - run: ls ..
-      - name: ok
+      - name: checkout
         uses: actions/checkout@v2
         with:
           path: iot-benchmark
-#          repository: 'thulab/iot-benchmark'
-#          ref: 'master'
-#          fetch-depth: 0
-      - name: ok2
+      - name: spotless-check
         run: |
           cd ${{ github.workspace }}/iot-benchmark
-          git status
           mvn spotless:check
-#          cd iot-benchmark
