@@ -4,6 +4,7 @@ jobs:
   have_a_try:
     runs-on: ubuntu-latest
     steps:
-      run: |
-        cd <iot-benchmark>
-        mvn spotless:check
+      - name: ok
+        run: |
+          cd <iot-benchmark>
+          mvn spotless:check
