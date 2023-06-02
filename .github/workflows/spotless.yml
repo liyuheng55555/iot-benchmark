@@ -4,6 +4,8 @@ jobs:
   have_a_try:
     runs-on: ubuntu-latest
     steps:
+      - run: pwd
+      - run: ls
       - name: ok
         run: |
           pwd
