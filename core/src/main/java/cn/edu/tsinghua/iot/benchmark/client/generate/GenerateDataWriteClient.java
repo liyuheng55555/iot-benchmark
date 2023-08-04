@@ -50,7 +50,7 @@ public class GenerateDataWriteClient extends GenerateBaseClient {
   /** Do Ingestion Operation @Return when connect failed return false */
   private boolean doGenerate() {
     try {
-      for (int i = 0; i < deviceSchemas.size(); i++) {
+      for (int i = 0; i < deviceSchemas.size(); i += config.getDEVICE_NUM_PER_WRITE()) {
         int innerLoop =
             config.isIS_SENSOR_TS_ALIGNMENT() ? 1 : deviceSchemas.get(i).getSensors().size();
         for (int j = 0; j < innerLoop; j++) {

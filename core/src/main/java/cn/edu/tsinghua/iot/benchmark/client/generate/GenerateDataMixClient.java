@@ -128,7 +128,7 @@ public class GenerateDataMixClient extends GenerateBaseClient {
   /** Do Ingestion Operation @Return when connect failed return false */
   private boolean ingestionOperation() {
     try {
-      for (int i = 0; i < deviceSchemasSize; i++) {
+      for (int i = 0; i < deviceSchemasSize; i += config.getDEVICE_NUM_PER_WRITE()) {
         int innerLoop = 0;
         if (config.isIS_SENSOR_TS_ALIGNMENT()) {
           innerLoop = 1;
